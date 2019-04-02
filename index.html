@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Michał Zając">
+  <title>Cryptography 101</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="reveal.js/css/reveal.css">
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <link rel="stylesheet" href="reveal.js/css/theme/black.css" id="theme">
+  <link rel="stylesheet" href="custom.css">
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? 'reveal.js/css/print/pdf.css' : 'reveal.js/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+  <!--[if lt IE 9]>
+  <script src="reveal.js/lib/js/html5shiv.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide">
+  <h1 class="title">Cryptography 101</h1>
+  <p class="author">Michał Zając</p>
+</section>
+
+<section><section id="about-cryptography" class="title-slide slide level1"><h1>About cryptography</h1></section><section id="definition" class="slide level2">
+<h2>Definition</h2>
+<blockquote>
+<p>Cryptography is the practice and study of techniques for secure communication in the presence of third parties called adversaries.</p>
+</blockquote>
+<p>– Wikipedia</p>
+</section><section id="assumptions" class="slide level2">
+<h2>Assumptions</h2>
+<p>Parties in communication will be called Alice and Bob. Any eavesdropper will be called Eve.</p>
+</section><section id="security-by-obscurity" class="slide level2">
+<h2>Security by obscurity</h2>
+<blockquote>
+<p>A cryptosystem should be secure even if everything about the system, except the key, is public knowledge.</p>
+</blockquote>
+<p>– Auguste Kerckhoffs, 1883</p>
+</section></section>
+<section><section id="early-cryptography" class="title-slide slide level1"><h1>Early cryptography</h1></section><section id="transposition-cipher" class="slide level2">
+<h2>Transposition cipher</h2>
+<pre><code>W . . . E . . . C . . . R . . . L . . . T . . . E
+. E . R . D . S . O . E . E . F . E . A . O . C .
+. . A . . . I . . . V . . . D . . . E . . . N . .</code></pre>
+</section><section id="substitution-cipher" class="slide level2">
+<h2>Substitution cipher</h2>
+<pre><code>To get to the other side!
+Gb trg gb gur bgure fvqr!</code></pre>
+</section></section>
+<section><section id="modern-cryptography" class="title-slide slide level1"><h1>Modern cryptography</h1></section><section id="symmetric-key-cryptography" class="slide level2">
+<h2>Symmetric key cryptography</h2>
+<p>The same key is used for both encryption and decryption. This is a shared secret.</p>
+</section><section id="symmetric-key-cryptography-1" class="slide level2">
+<h2>Symmetric key cryptography</h2>
+
+<img data-src="img/Symmetric_key_encryption.svg" alt="Symmetric key encryption" class="stretch"></section><section id="where-do-i-use-this" class="slide level2">
+<h2>Where do I use this?</h2>
+<p>SSL, TLS, WiFi, <a href="https://fbnewsroomus.files.wordpress.com/2016/07/secret_conversations_whitepaper-1.pdf">Facebook Messenger</a>, <a href="https://en.wikipedia.org/wiki/Signal_Protocol">Signal</a></p>
+</section><section id="how-do-i-give-someone-my-key" class="slide level2">
+<h2>How do I give someone my key?</h2>
+<p>Well, fuck. Enter Diffie-Hellman-Merkle key exchange.</p>
+</section><section id="diffie-hellman-merkle-key-exchange" class="slide level2">
+<h2>Diffie-Hellman-Merkle key exchange</h2>
+
+<img data-src="img/Diffie-Hellman_Key_Exchange.svg" alt="Diffie-Hellman-Merkle key exchange" class="stretch"></section><section id="asymmetric-key-cryptography" class="slide level2">
+<h2>Asymmetric key cryptography</h2>
+<p>Everyone has two keys: private key and public key.</p>
+</section><section id="encryption" class="slide level2">
+<h2>Encryption</h2>
+
+<img data-src="img/Public_key_encryption.svg" alt="Asymmetric key encryption" class="stretch"></section><section id="secret-sharing" class="slide level2">
+<h2>Secret sharing</h2>
+
+<img data-src="img/Public_key_shared_secret.svg" alt="Secret sharing" class="stretch"></section><section id="signing" class="slide level2">
+<h2>Signing</h2>
+
+<img data-src="img/Private_key_signing.png" alt="Signing" class="stretch"></section><section id="where-do-i-use-this-1" class="slide level2">
+<h2>Where do I use this?</h2>
+<p>Email, SSH, SSL, TLS</p>
+</section><section id="how-do-i-give-someone-my-key-1" class="slide level2">
+<h2>How do I give someone my key?</h2>
+<p>Send your public key in any way you want. Make sure you don’t fuck up and post your <a href="http://crypto.2012.rump.cr.yp.to/87d4905b6d2fbc6ad2389debb73f7035.pdf">private key</a>.</p>
+</section></section>
+<section><section id="key-takeaways" class="title-slide slide level1"><h1>Key takeaways</h1></section><section id="section" class="slide level2">
+<h2></h2>
+<ol type="1">
+<li>Use ROT-13 for spoilers.</li>
+<li>Use symmetric cryptography when speed is an issue.</li>
+<li>Use asymmetric cryptography where privacy is a concern.</li>
+<li>When using asymmetric cryptography - DO NOT SHARE YOUR PRIVATE KEY.</li>
+<li>Don’t fuck a duck.</li>
+</ol>
+</section><section id="questions" class="slide level2">
+<h2>Questions?</h2>
+</section><section id="see-you-on-cryptography-201" class="slide level2">
+<h2>See you on Cryptography 201</h2>
+</section></section>
+    </div>
+  </div>
+
+  <script src="reveal.js/lib/js/head.min.js"></script>
+  <script src="reveal.js/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        // Display controls in the bottom right corner
+        controls: false,
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+        // Push each slide change to the browser history
+        history: true,
+        // Enable slide navigation via mouse wheel
+        mouseWheel: true,
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true },
+          { src: 'reveal.js/plugin/notes/notes.js', async: true }
+        ]
+      });
+    </script>
+    </body>
+</html>
